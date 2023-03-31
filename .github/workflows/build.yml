@@ -28,9 +28,11 @@ jobs:
         run: ./gradlew applyPatches
       - name: Build
         run: ./gradlew build
+      - name: zip
+        run: zip -r folia.zip *
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         if: success()
         with:
          name: Folia
-         path: ./*
+         path: ./folia.zip
