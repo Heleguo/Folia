@@ -9,10 +9,10 @@ data deserialization and is racey even in Vanilla. But in Folia,
 some accesses may throw and as such we need to fix this directly.
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index 5f53c9ad5d64053a2e29c58ddb62e7d2bd176efe..da47d47c1bdd2158e46418267151f40f879ea2af 100644
+index aa42c1a05f12a614c0a7553d52efa1137b9363f9..817f79bfca1aec161cb4635b9c7a8e21b14db7eb 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-@@ -570,7 +570,7 @@ public class ServerPlayer extends Player {
+@@ -571,7 +571,7 @@ public class ServerPlayer extends Player {
          this.getBukkitEntity().readExtraData(nbt); // CraftBukkit
  
          if (this.isSleeping()) {
@@ -22,10 +22,10 @@ index 5f53c9ad5d64053a2e29c58ddb62e7d2bd176efe..da47d47c1bdd2158e46418267151f40f
  
          // CraftBukkit start
 diff --git a/src/main/java/net/minecraft/world/entity/LivingEntity.java b/src/main/java/net/minecraft/world/entity/LivingEntity.java
-index 4f8062432cfe6480664e674fde0255f07b15c73a..49716190b784339b80c8a3ac8e5b13bc450284ee 100644
+index c52203f828f13f407c3878e73687a10a3f2bee55..f185aac0a944d561d394aa6a3907ec4999996686 100644
 --- a/src/main/java/net/minecraft/world/entity/LivingEntity.java
 +++ b/src/main/java/net/minecraft/world/entity/LivingEntity.java
-@@ -4225,6 +4225,11 @@ public abstract class LivingEntity extends Entity implements Attackable {
+@@ -4284,6 +4284,11 @@ public abstract class LivingEntity extends Entity implements Attackable {
              }
  
          });
